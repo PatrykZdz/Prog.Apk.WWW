@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+
+<head>
+	<meta http-equiv="Content-type" content="text/html; charset=UTF-8" />
+	<meta http-equiv="Content-Language" content="pl" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+	<link rel = "stylesheet" href="style.css" />
+	<meta name="Author" content="Patryk Zdziebłowski" />
+	<title>Największe budynki świata</title>
+	<style>
+		body 
+		{
+			font-family: Georgia, 'Times New Roman', Times, serif;
+			padding: 0;
+			margin: 30px;
+			text-align:center;
+			background-color: lightblue;
+
+		}
+		.menu 
+		{
+			background-color: gray;
+			overflow:hidden;
+		}
+
+		.menu a {
+			float: left;
+			display: block;
+			color: black;
+			text-align: center;
+			padding: 10px 16px;
+			text-decoration: none;
+		}
+		.menu a:hover 
+		{
+			background-color: cyan;
+		}
+	</style>
+</head>
+<body>
+	<div class="menu">
+		<a href="index.html">Strona główna</a>
+		<a href="budynek1.html">Top 1</a>
+		<a href="budynek2.html">Top 2</a>
+		<a href="budynek3.html">Top 3</a>
+        <a href="budynek4.html">Top 4</a>
+        <a href="budynek5.html">Top 5</a>
+		<a href="budynek6.html">Kontakt</a>
+	</div>
+
+	<div id = "animacjaTestowa1" class = "test-block">Kliknj, a się powiększy</div>
+		<script>
+			$("#animacjaTestowa1").on("click",function(){
+				$(this).animate({
+					width: "500px",
+					opacity: 0.4,
+					fontSize: "3em",
+					borderwidth: "10px"
+					
+
+				},1500);
+			});
+		</script>
+	<div id = "animacjaTestowa2" class="test-block">
+		Najedź kursorem, a sie powiększe
+	</div>
+		<script>
+			$("#animacjaTestowa2").on({
+				"mouseover":function() {
+					$(this).animate({
+						width:300
+					}, 800);
+			},
+			"mouseout":function() {
+				$(this).animate({
+					width:200
+				}, 800);
+			}
+		});
+		</script>
+	<div id="animacjaTestowa3" class="test-block">
+		Klikaj, abym urósł
+	</div>
+		<script>
+			$("#animacjaTestowa3").on("click",function(){
+				if (!$(this).is(":animated")) {
+					$(this).animate({
+						width: "+=" + 50,
+						height: "+=" + 10,
+						opacity: "+=" + 0.1,
+						duration : 3000
+					});
+				}
+			});
+		</script>
+
+	
+	<h1>Kontakt</h1>	
+	<h2>Wypełnił poniższy formularz, aby móc się z nami skontaktować</h2>
+	<form action="mailto:patryczekpatryczek@gmail.com" method="post" enctype="text/plain">
+		<img src="email.jpg"  width="400px" >
+		<p> Imię: <input size="27"> </p>
+		<p> E-mali:<input size="25"></p> 
+		<p> Temat: <input size ="25"></p>
+		<b> Wiadomość:</b> <br>
+		<textarea rows="10" cols="40" > </textarea>
+		<br>
+		<input type = "submit" value="Wyślij">
+	</form>
+</body>

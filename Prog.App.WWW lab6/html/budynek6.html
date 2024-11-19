@@ -1,0 +1,61 @@
+
+	<div id = "animacjaTestowa1" class = "test-block">Kliknj, a się powiększy</div>
+		<script>
+			$("#animacjaTestowa1").on("click",function(){
+				$(this).animate({
+					width: "500px",
+					opacity: 0.4,
+					fontSize: "3em",
+					borderwidth: "10px"
+					
+
+				},1500);
+			});
+		</script>
+	<div id = "animacjaTestowa2" class="test-block">
+		Najedź kursorem, a sie powiększe
+	</div>
+		<script>
+			$("#animacjaTestowa2").on({
+				"mouseover":function() {
+					$(this).animate({
+						width:300
+					}, 800);
+			},
+			"mouseout":function() {
+				$(this).animate({
+					width:200
+				}, 800);
+			}
+		});
+		</script>
+	<div id="animacjaTestowa3" class="test-block">
+		Klikaj, abym urósł
+	</div>
+		<script>
+			$("#animacjaTestowa3").on("click",function(){
+				if (!$(this).is(":animated")) {
+					$(this).animate({
+						width: "+=" + 50,
+						height: "+=" + 10,
+						opacity: "+=" + 0.1,
+						duration : 3000
+					});
+				}
+			});
+		</script>
+
+	
+
+	<h1>Kontakt</h1>	
+	<h2>Wypełnił poniższy formularz, aby móc się z nami skontaktować</h2>
+	<form action="mailto:patryczekpatryczek@gmail.com" method="post" enctype="text/plain">
+	<img src="img/email.jpg"  width="400px" >
+		<p> Imię: <input size="27"> </p>
+		<p> E-mali:<input size="25"></p> 
+		<p> Temat: <input size ="25"></p>
+		<b> Wiadomość:</b> <br>
+		<textarea rows="10" cols="40" > </textarea>
+		<br>
+		<input type = "submit" value="Wyślij">
+	</form>

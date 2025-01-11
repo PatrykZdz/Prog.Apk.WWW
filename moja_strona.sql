@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 21, 2024 at 11:49 PM
+-- Generation Time: Sty 11, 2025 at 08:21 PM
 -- Wersja serwera: 10.4.32-MariaDB
 -- Wersja PHP: 8.2.12
 
@@ -68,6 +68,36 @@ INSERT INTO `page_list` (`id`, `page_title`, `page_content`, `status`) VALUES
 (7, 'budynek6', '\r\n	<div id = \"animacjaTestowa1\" class = \"test-block\">Kliknj, a się powiększy</div>\r\n		<script>\r\n			$(\"#animacjaTestowa1\").on(\"click\",function(){\r\n				$(this).animate({\r\n					width: \"500px\",\r\n					opacity: 0.4,\r\n					fontSize: \"3em\",\r\n					borderwidth: \"10px\"\r\n					\r\n\r\n				},1500);\r\n			});\r\n		</script>\r\n	<div id = \"animacjaTestowa2\" class=\"test-block\">\r\n		Najedź kursorem, a sie powiększe\r\n	</div>\r\n		<script>\r\n			$(\"#animacjaTestowa2\").on({\r\n				\"mouseover\":function() {\r\n					$(this).animate({\r\n						width:300\r\n					}, 800);\r\n			},\r\n			\"mouseout\":function() {\r\n				$(this).animate({\r\n					width:200\r\n				}, 800);\r\n			}\r\n		});\r\n		</script>\r\n	<div id=\"animacjaTestowa3\" class=\"test-block\">\r\n		Klikaj, abym urósł\r\n	</div>\r\n		<script>\r\n			$(\"#animacjaTestowa3\").on(\"click\",function(){\r\n				if (!$(this).is(\":animated\")) {\r\n					$(this).animate({\r\n						width: \"+=\" + 50,\r\n						height: \"+=\" + 10,\r\n						opacity: \"+=\" + 0.1,\r\n						duration : 3000\r\n					});\r\n				}\r\n			});\r\n		</script>\r\n\r\n	\r\n\r\n	<h1>Kontakt</h1>	\r\n	<h2>Wypełnił poniższy formularz, aby móc się z nami skontaktować</h2>\r\n	<form action=\"mailto:patryczekpatryczek@gmail.com\" method=\"post\" enctype=\"text/plain\">\r\n	<img src=\"img/email.jpg\"  width=\"400px\" >\r\n		<p> Imię: <input size=\"27\"> </p>\r\n		<p> E-mali:<input size=\"25\"></p> \r\n		<p> Temat: <input size =\"25\"></p>\r\n		<b> Wiadomość:</b> <br>\r\n		<textarea rows=\"10\" cols=\"40\" > </textarea>\r\n		<br>\r\n		<input type = \"submit\" value=\"Wyślij\">\r\n	</form>\r\n', 1),
 (8, 'filmy', '<h1>Największe budynki świata</h1>\r\n\r\n<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/ebD_Szbxnq4?si=FvHt16AuiEtlWiqS\" title=\"YouTube video player\" \r\nframeborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" \r\nreferrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>\r\n    \r\n<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/r9omqwqHNiE?si=r6DvkmB94wt94YT4\" title=\"YouTube video player\" \r\nframeborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" \r\nreferrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>\r\n\r\n<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/cZp8d0r4bjA?si=Xexup4OMIDZF7Vyh\" title=\"YouTube video player\" \r\nframeborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" \r\nreferrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>\r\n\r\n\r\n\r\n', 1);
 
+-- --------------------------------------------------------
+
+--
+-- Struktura tabeli dla tabeli `produkty`
+--
+
+CREATE TABLE `produkty` (
+  `id` int(11) NOT NULL,
+  `tytul` varchar(255) NOT NULL,
+  `opis` text NOT NULL,
+  `data_utworzenia` date NOT NULL,
+  `data_modyfikacji` date NOT NULL,
+  `data_wygasniecia` date NOT NULL,
+  `cena_netto` decimal(10,2) NOT NULL,
+  `podatek_vat` decimal(5,2) NOT NULL,
+  `ilosc_dostepnych_sztuk_w_magazynie` int(11) NOT NULL,
+  `status_dostepnosci` varchar(255) NOT NULL DEFAULT 'Niedostępny',
+  `kategoria` varchar(255) NOT NULL,
+  `gabaryt_produktu` varchar(50) NOT NULL,
+  `zdjecie` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `produkty`
+--
+
+INSERT INTO `produkty` (`id`, `tytul`, `opis`, `data_utworzenia`, `data_modyfikacji`, `data_wygasniecia`, `cena_netto`, `podatek_vat`, `ilosc_dostepnych_sztuk_w_magazynie`, `status_dostepnosci`, `kategoria`, `gabaryt_produktu`, `zdjecie`) VALUES
+(5, 'Torba sportowa', 'Torba sportowa', '2025-01-11', '2025-01-11', '2025-01-27', 39.99, 23.00, 15, 'Niedostępny', 'Torby', 'Mały ', ''),
+(6, 'Damska Torebka', ' Torebka 2 ', '2025-01-11', '2025-01-11', '2025-01-02', 29.99, 13.00, 14, '', 'Torby', 'Mały ', '');
+
 --
 -- Indeksy dla zrzutów tabel
 --
@@ -85,6 +115,12 @@ ALTER TABLE `page_list`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indeksy dla tabeli `produkty`
+--
+ALTER TABLE `produkty`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -99,6 +135,12 @@ ALTER TABLE `kategoria`
 --
 ALTER TABLE `page_list`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT for table `produkty`
+--
+ALTER TABLE `produkty`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sty 11, 2025 at 08:21 PM
+-- Generation Time: Sty 21, 2025 at 11:34 PM
 -- Wersja serwera: 10.4.32-MariaDB
 -- Wersja PHP: 8.2.12
 
@@ -39,7 +39,7 @@ CREATE TABLE `kategoria` (
 
 INSERT INTO `kategoria` (`id`, `matka`, `nazwa`) VALUES
 (1, 0, 'Buty'),
-(2, 1, 'Buty do wspinaczki');
+(2, 1, 'Buty wspinaczkowe');
 
 -- --------------------------------------------------------
 
@@ -95,8 +95,10 @@ CREATE TABLE `produkty` (
 --
 
 INSERT INTO `produkty` (`id`, `tytul`, `opis`, `data_utworzenia`, `data_modyfikacji`, `data_wygasniecia`, `cena_netto`, `podatek_vat`, `ilosc_dostepnych_sztuk_w_magazynie`, `status_dostepnosci`, `kategoria`, `gabaryt_produktu`, `zdjecie`) VALUES
-(5, 'Torba sportowa', 'Torba sportowa', '2025-01-11', '2025-01-11', '2025-01-27', 39.99, 23.00, 15, 'Niedostępny', 'Torby', 'Mały ', ''),
-(6, 'Damska Torebka', ' Torebka 2 ', '2025-01-11', '2025-01-11', '2025-01-02', 29.99, 13.00, 14, '', 'Torby', 'Mały ', '');
+(5, 'Torba sportowa', 'Torba sportowa', '2025-01-11', '2025-01-18', '2025-01-29', 19.99, 23.00, 15, 'Niedostępny', 'Torby', 'Mały ', 'https://sklep534626.shoparena.pl/userdata/public/gfx/1120.jpg'),
+(6, 'Damska Torebka', ' Torebka 2 ', '2025-01-11', '2025-01-21', '2025-01-02', 199.99, 13.00, 14, 'Dostępny', 'Torby', 'Mały ', 'https://www.waznydodatek.pl/hpeciai/723ef207917804c901b4e45e03fd4382/pol_pl_Zgrabna-bordowa-mala-torebka-skorzana-wloska-Regulowany-pasek-34531_1.webp'),
+(9, 'Plecak', 'Plecak dziecięcy ', '2025-01-14', '2025-01-21', '2025-01-28', 69.99, 10.00, 25, 'Dostępny', 'Torby', 'Mały ', 'https://parasoledlaciebie.pl/userdata/public/gfx/20543.jpg'),
+(11, 'Buty', 'Buty wspinaczkowe', '2025-01-21', '2025-01-21', '2025-01-16', 299.99, 15.00, 13, 'Niedostępny', 'Buty', 'Mały ', 'https://www.9b-plus.com/113786-large_default/striker-qc.jpg');
 
 --
 -- Indeksy dla zrzutów tabel
@@ -128,19 +130,19 @@ ALTER TABLE `produkty`
 -- AUTO_INCREMENT for table `kategoria`
 --
 ALTER TABLE `kategoria`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `page_list`
 --
 ALTER TABLE `page_list`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `produkty`
 --
 ALTER TABLE `produkty`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
